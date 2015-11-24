@@ -14,6 +14,7 @@
   - [危险操作alias处理]()
   - [shell审计]()
 - [网络管理]()
+- 其他
 
 ##linux下重要服务组件 :cherries:
 - [LNMP-linux,nginx,mysql,php]()
