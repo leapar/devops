@@ -24,19 +24,33 @@
 - [mongodb]()
 - [jvm]()
 - [tomcat]()
+- [hadoop]()
 - [storm]()
 - [zookeeper]()
-- ...其他
+- 其他
 
 ##配置管理 :grapes: 
+- cmdb
 
 ##持续部署 :tangerine:
+- git+deployAgent
 
 ##监控系统 :tangerine:
+- zabbix
+- cacti+nagios
+- ganglia
+- 其他
 
 ##常见高可用集群部署架构 :tomato:
+- lvs
+- db主备
+- 名字服务
 
 ##系能调优策略 :corn:
+- 调优工具
+- 分析系统
 
 ##小工具 :green_apple:
+- shell小脚本等
+
 
