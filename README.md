@@ -2,6 +2,7 @@
 
 :joy::yum::joy::round_pushpin:
 
+
 ##linux基础(单机) :apple:
 - [初识&装系统](./初识linux.md)
 - [系统启动过程]()
