@@ -9,7 +9,7 @@
 - 登录后注意事项
 - 系统安全
   - 密码管理
-  - iptalbes策略(http://blog.csdn.net/lin_credible/article/details/8614907)
+  - [iptalbes](http://blog.csdn.net/lin_credible/article/details/8614907)
   - SELinux相关
   - 危险操作alias处理
   - shell审计
