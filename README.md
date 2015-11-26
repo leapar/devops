@@ -5,30 +5,38 @@
 
 ##linux基础(单机) :apple:
 - [初识&装系统](./初识linux.md)
-- [系统启动过程]()
-- [登录后注意事项]()
-- [系统安全]()
-  - [密码管理]()
-  - [iptalbes策略]()
-  - [SELinux相关]()
-  - [危险操作alias处理]()
-  - [shell审计]()
-- [网络管理]()
+- [系统启动过程](#)
+- [登录后注意事项](#)
+- [系统安全](#)
+  - [密码管理](#)
+  - [iptalbes策略](#)
+  - [SELinux相关](#)
+  - [危险操作alias处理](#)
+  - [shell审计](#)
+- [网络管理](#)
 - 其他
 
 ##linux下重要服务组件 :cherries:
-- [LNMP-linux,nginx,mysql,php]()
-- [nginx]()
-- [apache略]() 
-- [php]()
-- [python]()
-- [mysql]()
-- [mongodb]()
-- [jvm]()
-- [tomcat]()
-- [hadoop]()
-- [storm]()
-- [zookeeper]()
+- [基础服务](#)
+  - SSH
+  - FTP
+  - NFS
+  - RSYNC
+  - DNS
+  - NTP
+  - ...
+- [LNMP-linux,nginx,mysql,php](#)
+- [nginx](#)
+- [apache略](#) 
+- [php](#)
+- [python](#)
+- [mysql](#)
+- [mongodb](#)
+- [jvm](#)
+- [tomcat](#)
+- [hadoop](#)
+- [storm](#)
+- [zookeeper](#)
 - 其他
 
 ##配置管理 :grapes: 
