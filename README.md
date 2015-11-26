@@ -39,6 +39,9 @@
 - zookeeper
 - 其他
 
+##虚拟化 :lemon:
+- Docker
+
 ##配置管理 :grapes: 
 - cmdb
 
