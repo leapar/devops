@@ -4,12 +4,12 @@
 
 
 ##linux基础(单机) :apple:
-- [初识&装系统](./初识linux.md)
+- [初识&装系统](./new-to-linux.md)
 - [系统启动过程](./images/linux-start.png)
 - 登录后注意事项
 - 系统安全
   - 密码管理
-  - [iptalbes](http://blog.csdn.net/lin_credible/article/details/8614907)
+  - [iptables](http://blog.csdn.net/lin_credible/article/details/8614907)
   - SELinux相关
   - 危险操作alias处理
   - shell审计
