@@ -45,7 +45,7 @@
 ##持续部署 :tangerine:
 - git+deployAgent
 
-##监控系统 :tangerine:
+##监控系统 :banana:
 - zabbix
 - cacti+nagios
 - ganglia
