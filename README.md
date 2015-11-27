@@ -39,6 +39,9 @@
 - zookeeper
 - 其他
 
+##DevOps
+- [some examples](./devopsexamples.pptx) 
+
 ##配置管理 :grapes: 
 - cmdb
 
