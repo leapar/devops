@@ -1,6 +1,4 @@
-:joy::yum::joy::round_pushpin:
-
-目录
+:round_pushpin:目录:round_pushpin:
 
  - [Linux基础](#linux_base)
  - [Linux下基础服务](#linux_base_services)
@@ -12,7 +10,6 @@
  - [集群](#cluster)
  - [调优](#optimize)
  - [工具](#tools)
-
 
 ## <a name="linux_base"></a>Linux基础 :apple:
 - [初识&装系统](./new-to-linux.md)
