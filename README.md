@@ -16,7 +16,7 @@
  - [工具](#tools)
 
 
-##Linux基础 <a name="linux_base"></a> :apple:
+## <a name="linux_base"></a>Linux基础 :apple:
 - [初识&装系统](./new-to-linux.md)
 - [系统启动过程](./images/linux-start.png)
 - 登录后注意事项
@@ -29,7 +29,7 @@
 - 网络管理
 - SHELL编程
 
-##Linux下基础服务 <a name="linux_base_services"></a> :cherries:
+## <a name="linux_base_services"></a>Linux下基础服务 :cherries:
 - 基础服务
   - SSH
   - FTP
@@ -52,34 +52,34 @@
 - zookeeper
 - 其他
 
-##DevOps <a name="devops"></a>
+## <a name="devops"></a>DevOps
 - [some examples](./devopsexamples.pptx) 
 
-##虚拟化 <a name="virtual"></a> :lemon:
+## <a name="virtual"></a>虚拟化 :lemon:
 - Docker
 
-##配置管理 <a name="cmdb"></a> :grapes: 
+## <a name="cmdb"></a>配置管理 :grapes: 
 - cmdb
 
-##持续部署 <a name="deploy"></a> :tangerine:
+## <a name="deploy"></a>持续部署 :tangerine:
 - git+deployAgent
 
-##监控系统 <a name="monitor"></a> :banana:
+## <a name="monitor"></a>监控系统 :banana:
 - zabbix
 - cacti+nagios
 - ganglia
 - 其他
 
-##常见高可用集群部署架构 <a name="cluster"></a> :tomato:
+## <a name="cluster"></a>常见高可用集群部署架构 :tomato:
 - lvs
 - db主备
 - 名字服务
 
-##系能调优策略 :corn:
+## <a name="optimize"></a>系能调优策略 :corn:
 - 调优工具
 - 分析系统
 
-##小工具 <a name="tools"></a> :green_apple:
+## <a name="tools"></a>小工具 :green_apple:
 - shell小脚本等
 
 
