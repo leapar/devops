@@ -3,7 +3,7 @@
 目录
 
  - [Linux基础](#linux_base)
- - [Linux下基础服务](#linnux_base_services)
+ - [Linux下基础服务](#linux_base_services)
  - [DevOps](#devops)
  - [虚拟化](#virtual)
  - [CMDB](#cmdb)
@@ -25,7 +25,7 @@
   - 危险操作alias处理
   - shell审计
 - 网络管理
-- SHELL编程
+- [SHELL编程](./shell)
 
 ## <a name="linux_base_services"></a>Linux下基础服务 :cherries:
 - 基础服务
@@ -78,6 +78,11 @@
 - 分析系统
 
 ## <a name="tools"></a>小工具 :green_apple:
-- shell小脚本等
+- [shell脚本](./shell)
 
-
+## <a name="opensource"></a>国内相关开源 :cn:
+- [阿里巴巴](https://github.com/alibaba)
+- [cat-大众点评](https://github.com/dianping/cat)
+- [小米监控系统](https://github.com/open-falcon/of-release)
+- [腾讯开源](http://tencentopen.github.io/)
+- [tars包发布](https://github.com/lin-credible/tars)``目前项目已暂停``
