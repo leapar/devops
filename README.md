@@ -2,8 +2,21 @@
 
 :joy::yum::joy::round_pushpin:
 
+目录
 
-##linux基础(单机) :apple:
+ - [Linux基础](#linux_base)
+ - [Linux下基础服务](#linnux_base_services)
+ - [DevOps](#devops)
+ - [虚拟化](#virtual)
+ - [CMDB](#cmdb)
+ - [持续部署](#deploy)
+ - [监控](#monitor)
+ - [集群](#cluster)
+ - [调优](#optimize)
+ - [工具](#tools)
+
+
+##Linux基础 <a name="linux_base"></a> :apple:
 - [初识&装系统](./new-to-linux.md)
 - [系统启动过程](./images/linux-start.png)
 - 登录后注意事项
@@ -14,9 +27,9 @@
   - 危险操作alias处理
   - shell审计
 - 网络管理
-- 其他
+- SHELL编程
 
-##linux下重要服务组件 :cherries:
+##Linux下基础服务 <a name="linux_base_services"></a> :cherries:
 - 基础服务
   - SSH
   - FTP
@@ -39,25 +52,25 @@
 - zookeeper
 - 其他
 
-##DevOps
+##DevOps <a name="devops"></a>
 - [some examples](./devopsexamples.pptx) 
 
-##虚拟化 :lemon:
+##虚拟化 <a name="virtual"></a> :lemon:
 - Docker
 
-##配置管理 :grapes: 
+##配置管理 <a name="cmdb"></a> :grapes: 
 - cmdb
 
-##持续部署 :tangerine:
+##持续部署 <a name="deploy"></a> :tangerine:
 - git+deployAgent
 
-##监控系统 :banana:
+##监控系统 <a name="monitor"></a> :banana:
 - zabbix
 - cacti+nagios
 - ganglia
 - 其他
 
-##常见高可用集群部署架构 :tomato:
+##常见高可用集群部署架构 <a name="cluster"></a> :tomato:
 - lvs
 - db主备
 - 名字服务
@@ -66,7 +79,7 @@
 - 调优工具
 - 分析系统
 
-##小工具 :green_apple:
+##小工具 <a name="tools"></a> :green_apple:
 - shell小脚本等
 
 
