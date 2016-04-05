@@ -1,3 +1,28 @@
+1. 序言
+2. 目录规划
+3. 安装步骤
+3.1 下载和解压
+3.3 日志格式
+3.4 配置文件
+3.5 部署Zookeeper Server服务标识
+4. 启动和关闭
+5. 进程维护
+5.1 安装 supervisor
+5.2 supervisor 的目录规划
+5.3 supervisor 的配置示例
+1. 主配置文件：$HOME/app/supervisor/supervisord.conf
+2. zookeeper 配置文件：$HOME/app/supervisor/conf.d/zookeeper.conf
+5.3 supervisor 的启动
+1. 增加环境变量：
+2. 启动服务
+6. 服务监控
+6.1 zookeeper server JVM 内存监控
+6.2 zookeeper server 运行状态监控
+1. 环境信息：envi
+2. 固定设置：conf
+3. 连接总览：cons
+4. 状态概览：mntr 【监控首页】
+5. Session 的 watch 统计：wchs、wchc、wchp 【可以通过 Session ID 关联到 cons 查看细节】
 
 
 1. 序言
