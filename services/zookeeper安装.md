@@ -43,10 +43,9 @@
 |日志目录 |	/home1/logs/zookeeper/ |	zookeeper server 的日志存放目录，这些日志描述 zookeeper server 系统运行时产生的信息|
 
 注意：
-```
-一般情况下，建议是 data 和 datalog 分开磁盘存放的，这样可以避免事务日志和快照文件对同一个磁盘的资源竞争，这样对于 zookeeper server 的吞吐率有着关键性的影响(如果存在吞吐率瓶颈时，可以尝试分开)；
-另外，经过测试，如果在大型 zookeeper server 集群中，当单个节点的事务日志或者快照文件损坏、丢失，故障的节点可以很快通过其他健康节点来恢复自身服务。
-```
+
+> 一般情况下，建议是 data 和 datalog 分开磁盘存放的，这样可以避免事务日志和快照文件对同一个磁盘的资源竞争，这样对于 zookeeper server 的吞吐率有着关键性的影响(如果存在吞吐率瓶颈时，可以尝试分开)；
+>另外，经过测试，如果在大型 zookeeper server 集群中，当单个节点的事务日志或者快照文件损坏、丢失，故障的节点可以很快通过其他健康节点来恢复自身服务。
         
 ## 3. 安装步骤
 ### 3.1 下载和解压
@@ -97,8 +96,7 @@ $HOME/app/zookeeper/conf/log4j.properties
 
 |对象|内容|备注|使用场合|
 |----|----|----|--------|
-|log4j.rootLogger|	INFO, ROLLINGFILE	|日志输出的默认级别、输出对象，这里设定输出级别为INFO，输出的Appender为”ROLLINGFILE"
-日志级别有TRACE、DEBUG、INFO、WARN等，Appender对象是自定义的 |通用|
+|log4j.rootLogger|	INFO, ROLLINGFILE	|日志输出的默认级别、输出对象，这里设定输出级别为INFO，输出的Appender为”ROLLINGFILE"日志级别有TRACE、DEBUG、INFO、WARN等，Appender对象是自定义的 |通用|
 |log4j.appender.ROLLINGFILE |	org.apache.log4j.RollingFileAppender	|设定一个 RollingFIleAppender，名称为 “ROLLINGFILE”，其他类型的Appender，例如：输出到终端：org.apache.log4j.ConsoleAppender 等|通用|
 |log4j.appender.ROLLINGFILE.Threshold|	INFO|	设定 ROLLINGFILE 的日志级别	|通用|
 |log4j.appender.ROLLINGFILE.File|	/home1/logs/zookeeper/zookeeper.log|	设定 ROLLINGFILE 的日志文件名称|	通用|
