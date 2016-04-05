@@ -32,88 +32,71 @@
 
 ## 2. 目录规划
 以下是 zookeeper 的标准化安装时核心的目录/文件规划：
-对象
-目录/文件
-备注
-根目录	$HOME/app/zookeeper【软链接】	
-真实目录会自带版本号，通过软链接建立没有版本号的路径，方便切换和回滚组件版本，例如：
 
-lrwxrwxrwx  1 storm storm   15 Aug 24 16:02 zookeeper -> zookeeper-3.4.6
-drwxr-xr-x 16 storm storm 4096 Aug 25 17:16 zookeeper-3.4.6
-配置目录	$HOME/app/zookeeper/conf/zoo.cfg	zookeeper server 的主配置文件
-数据目录	/home1/data/zookeeper/	zookeeper server 的数据目录，存放这 zookeeper server  内存数据库在磁盘上产生的所有快照文件
-事务日志目录	/home1/data/zookeeper/datalog/	zookeeper server 的事务日志目录，在对 zookeeper server 内存数据库执行磁盘快照前，先写事务日志，成功后再执行快照操作。
-服务标识文件	/home1/data/zookeeper/myid	zookeeper server 启动时的唯一标识
-日志目录	/home1/logs/zookeeper/	zookeeper server 的日志存放目录，这些日志描述 zookeeper server 系统运行时产生的信息
+| 对象 | 目录/文件 | 备注 |
+|------|-----------|------|
+|根目录|$HOME/app/zookeeper【软链接】|真实目录会自带版本号，通过软链接建立没有版本号的路径，方便切换和回滚组件版本，例如: lrwxrwxrwx  1 storm storm   15 Aug 24 16:02 zookeeper -> zookeeper-3.4.6 drwxr-xr-x 16 storm storm 4096 Aug 25 17:16 zookeeper-3.4.6 |
+|配置目录|$HOME/app/zookeeper/conf/zoo.cfg	|zookeeper server 的主配置文件|
+数据目录	|/home1/data/zookeeper/	|zookeeper server 的数据目录，存放这 zookeeper server  内存数据库在磁盘上产生的所有快照文件|
+|事务日志目录|	/home1/data/zookeeper/datalog/|	zookeeper server 的事务日志目录，在对 zookeeper server 内存数据库执行磁盘快照前，先写事务日志，成功后再执行快照操作。|
+|服务标识文件|	/home1/data/zookeeper/myid |	zookeeper server 启动时的唯一标识|
+|日志目录 |	/home1/logs/zookeeper/ |	zookeeper server 的日志存放目录，这些日志描述 zookeeper server 系统运行时产生的信息|
 
 注意：
-
-     一般情况下，建议是 data 和 datalog 分开磁盘存放的，这样可以避免事务日志和快照文件对同一个磁盘的资源竞争，这样对于 zookeeper server 的吞吐率有着关键性的影响(如果存在吞吐率瓶颈时，可以尝试分开)；
-
-     另外，经过测试，如果在大型 zookeeper server 集群中，当单个节点的事务日志或者快照文件损坏、丢失，故障的节点可以很快通过其他健康节点来恢复自身服务。
+```
+一般情况下，建议是 data 和 datalog 分开磁盘存放的，这样可以避免事务日志和快照文件对同一个磁盘的资源竞争，这样对于 zookeeper server 的吞吐率有着关键性的影响(如果存在吞吐率瓶颈时，可以尝试分开)；
+另外，经过测试，如果在大型 zookeeper server 集群中，当单个节点的事务日志或者快照文件损坏、丢失，故障的节点可以很快通过其他健康节点来恢复自身服务。
+```
         
-3. 安装步骤
-3.1 下载和解压
+## 3. 安装步骤
+### 3.1 下载和解压
+
 官方直接给出二进制安装包，无需编译，直接解压使用即可：
 
 下载地址：http://mirror.symnds.com/software/Apache/zookeeper/stable/
     
 本文档编写时，stable 版本号为 3.4.6，因此下载链接为：http://mirror.symnds.com/software/Apache/zookeeper/stable/zookeeper-3.4.6.tar.gz
-
+```
 cd $HOME/pkgs
 wget http://mirror.symnds.com/software/Apache/zookeeper/stable/zookeeper-3.4.6.tar.gz
 
 tar -zxvf zookeeper-3.4.6.tar.gz -C $HOME/app/ 
 cd $HOME/app && ln -snf $HOME/app/zookeeper-3.4.6.tar.gz $HOME/app/zookeeper
+```
 
-
-
-3.2 环境变量
+### 3.2 环境变量
     
 建议直接使用官方自带的管理工具对 zookeeper server 进行管理，官方虽然直接给出二进制安装包，但是此二进制包在编译时使用的环境变量均是默认值，因此启动之前，有以下的环境变量需要被修改，以便适应标准化部署，这些环境变量将会被 zkEnv.sh、zkServer.sh 使用：
-环境变量
-配置内容
-重要性
-说明
-$ZOO_LOG_DIR	/home1/logs/zookeeper/	中	zookeeper server 自身运行时产生的系统日志目录
-$ZOO_LOG4J_PROP	"INFO, ROLLINGFILE"	高	zookeeper server 系统日志的运行级别和使用的 log4j Appender，否则日志会输出到 zookeeper.out，难以进行日志管理
 
-
-
-
-$JMXDISABLE	NULL	中	默认不配置任何内容时，启用 JMX 服务
-$JMXLOCALONLY	false	中	默认为 falsely，运行 JMX 远程访问
-$SERVER_JVMFLAGS	-Xms2048m -Xmx2048m -XX:MaxMetaspaceSize=512m	高	
-设置JVM的内存选项，默认没有限制，容易导致服务器物理内存不足时，系统崩溃，因此这里设置为2G
-Java 8 取消 Perm 区域，使用 MetaSpace 来存储加载的类数据结构
-$JVMFLAGS	
--Djava.net.preferIPv4Stack=true -XX:CICompilerCount=10
-中	
-设置 zookeeper server 只允许在 IPV4 的网络，增加启动时的编译线程为10个
-这里可以设置JVM的其他参数，例如：
-使用CMS算法、设定FGC执行时O区上限值、打印GC日志、设定JMX远程访问端口等等
+|环境变量|配置内容|重要性|说明|
+|--------|--------|------|----|
+|$ZOO_LOG_DIR |	/home1/logs/zookeeper/|	中|	zookeeper server 自身运行时产生的系统日志目录|
+|$ZOO_LOG4J_PROP|	"INFO, ROLLINGFILE"	|高	|zookeeper server 系统日志的运行级别和使用的 log4j Appender，否则日志会输出到 zookeeper.out，难以进行日志管理|
+|$JMXDISABLE|	NULL|	中|	默认不配置任何内容时，启用 JMX 服务|
+|$JMXLOCALONLY	|false|	中	|默认为 falsely，运行 JMX 远程访问|
+|$SERVER_JVMFLAGS|	-Xms2048m -Xmx2048m -XX:MaxMetaspaceSize=512m|	高	|设置JVM的内存选项，默认没有限制，容易导致服务器物理内存不足时，系统崩溃，因此这里设置为2G Java 8 取消 Perm 区域，使用 MetaSpace 来存储加载的类数据结构|
+|$JVMFLAGS	| -Djava.net.preferIPv4Stack=true -XX:CICompilerCount=10|中|设置 zookeeper server 只允许在 IPV4 的网络，增加启动时的编译线程为10个 这里可以设置JVM的其他参数，例如：使用CMS算法、设定FGC执行时O区上限值、打印GC日志、设定JMX远程访问端口等等|
 
 编译 $HOME/.bash_profile 【注意：必须把变量进行export处理，Linux Shell派生的子进程才能获取这些变量值】
-
+```
 export ZOO_LOG_DIR=/home1/logs/zookeeper/logs
 export ZOO_LOG4J_PROP="INFO, ROLLINGFILE"
 export SERVER_JVMFLAGS="-Xms2048m -Xmx2048m -XX:MaxMetaspaceSize=512m"
 export JVMFLAGS="-Djava.net.preferIPv4Stack=true -XX:CICompilerCount=10"
-
+```
 这样，通过在 zkServer.sh 在启动时，使用 zkEnv.sh 获取到相关的环境变量，程序的日志就会被重定向到 $HOME/logs/zookeeper 中，并且以日志文件的形式输出，启动时的内存也得到控制。
 
-3.3 日志格式
+### 3.3 日志格式
 
 zookeeper 自身的日志配置文件为： 
-
+```
 $HOME/app/zookeeper/conf/log4j.properties
+```
 
 根据 LOG4J 的官方文档，日志可以按照大小和时间进行轮替，zookeeper 默认按照日志文件的大小进行轮替，这里给出2种标准化设定：
 
-对象
-内容
-备注
-使用场合
+|对象|内容|备注|使用场合|
+|----|----|----|--------|
 log4j.rootLogger	INFO, ROLLINGFILE	
 日志输出的默认级别、输出对象，这里设定输出级别为INFO，输出的Appender为”ROLLINGFILE"
 日志级别有TRACE、DEBUG、INFO、WARN等，Appender对象是自定义的
@@ -126,7 +109,6 @@ log4j.appender.ROLLINGFILE.Threshold	INFO	设定 ROLLINGFILE 的日志级别	通
 log4j.appender.ROLLINGFILE.File	/home1/logs/zookeeper/zookeeper.log	设定 ROLLINGFILE 的日志文件名称	通用
 log4j.appender.ROLLINGFILE.layout	org.apache.log4j.PatternLayout	设定 ROLLINGFILE 的日志输出格式类型	通用
 log4j.appender.ROLLINGFILE.layout.ConversionPattern	%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n	设定 ROLLINGFILE 的格式内容	通用
-
 
 
 
@@ -144,7 +126,6 @@ zookeeper.2
 
 
 
-
 log4j.appender.ROLLINGFILE.DatePattern = '.'yyyy-MM-dd-HH	 '.'yyyy-MM-dd-HH	
 设定 ROLLINGFILE 的日志轮替周期为小时，每一小时轮替一次，如果想按照天来轮替： '.'yyyy-MM-dd 即可
 e.g.:
@@ -158,7 +139,7 @@ zookeeper.2015-09-06-18
 这里，根据日志大小进行轮替设定的示例配置文件：
 【示例中安装用户是storm，只输出日志文件ROLLINGFILE，并且级别是INFO，CONSOLE(终端)和TRACE均有定义，但是不输出】
 
- 
+``` 
 ############################################################
 # Define some default values that can be overridden by system properties
 # root 
@@ -181,9 +162,6 @@ zookeeper.tracelog.file=zookeeper_trace.log
 ############################################################
 
 
-
-
-
 # DEFAULT: console appender only
 log4j.rootLogger=${zookeeper.root.logger}
 
@@ -196,19 +174,11 @@ log4j.rootLogger=${zookeeper.root.logger}
 #log4j.rootLogger=TRACE, CONSOLE, ROLLINGFILE, TRACEFILE
 
 
-
-
-
-
 # Log INFO level and above messages to the console
 log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
 log4j.appender.CONSOLE.Threshold=${zookeeper.console.threshold}
 log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
 log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n
-
-
-
-
 
 
 # Add ROLLINGFILE to rootLogger to get log file output
@@ -228,10 +198,6 @@ log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
 log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n
 
 
-
-
-
-
 # Add TRACEFILE to rootLogger to get log file output
 # Log DEBUG level and above messages to a log file
 log4j.appender.TRACEFILE=org.apache.log4j.FileAppender
@@ -242,9 +208,9 @@ log4j.appender.TRACEFILE.File=${zookeeper.tracelog.dir}/${zookeeper.tracelog.fil
 log4j.appender.TRACEFILE.layout=org.apache.log4j.PatternLayout
 # Notice we are including log4j's NDC here (%x)
 log4j.appender.TRACEFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L][%x] - %m%n
+```
 
-
-3.4 配置文件
+### 3.4 配置文件
 
 zookeeper 主配置文件为：
 
@@ -252,9 +218,8 @@ $HOME/app/zookeeper/conf/zoo.cfg【cd $HOME/app/zookeeper/conf && cp -a zoo_samp
 
  这里针对比较重要的参数进行了描述，详细可以查看官方文档：
 
-对象
-内容
-备注
+|对象|内容|备注|
+|----|----|----|
 tickTime	3000	
 设定心跳周期为 3000 毫秒；
 zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳
@@ -290,7 +255,7 @@ D 设定为 30001，表示的是万一集群中的 Leader 服务器挂了，需�
 
 
  配置示例：
-
+```
 # The number of milliseconds of each tick
 tickTime=3000
 
@@ -343,21 +308,22 @@ autopurge.purgeInterval=1
 server.1=10.34.161.39:30000:30001
 server.2=10.34.161.41:30000:30001
 server.3=10.34.166.113:30000:30001
-
+```
 
 
 这里提一下关于伪集群配置的问题：
 
 zkServer.sh 启动时，默认读取 $HOME/app/zookeeper/conf/zoo.cfg 的配置文件，如果想通过单机运行多个实例进行伪集群的调试，可以指定配置文件：
-
+```
 zkServer.sh start zoo_1.cfg
 zkServer.sh start zoo_2.cfg
 zkServer.sh start zoo_3.cfg
-
+```
 这样，客户端启动时，可以通过 --server 指令来连接到不同的zkServer，例如：
 zoo_1.cfg 中指定 zkServer 的端口是 30000，那么zkCli.sh的命令为：zkCli.sh --server 127.0.0.1:30000
 如果不是伪集群模式，直接输入zkCli.sh即可。
-3.5 部署Zookeeper Server服务标识
+
+### 3.5 部署Zookeeper Server服务标识
 
 在 3.4 的主配置文件中描述过，server.A=B:C:D 中的 A 为此 zookeeper server 实例在 zookeeper 集群中的标识，比如设定有：
 
@@ -367,7 +333,7 @@ server.1=10.34.161.39:30000:30001
 
 cd /home1/data/zookeeper/ && echo 1 > myid
 
-4. 启动和关闭
+## 4. 启动和关闭
 
 启动和关闭非常简单，推荐使用官方脚本 zkServer.sh 
 
@@ -411,19 +377,20 @@ zkServer.sh status
 按照操作，启动 zookeeper server 实例，随着实例的依次启动，检测 zkServer status 时，状态会从 "Error contacting service. It is probably not running." 到选举成功为止，改变为 "Mode: follower" 或者 “Mode: leader”。
 
 另外，只有 “Mode: leader” 的 zookeeper server 实例才会启动服务端口，所有的 zookeeper server 实例均会启动 选举端口。
-5. 进程维护
+
+## 5. 进程维护
 
 zookeeper server 的服务进程一般比较稳定，不太容易出异常崩溃或者退出的情况，但是基于 zookeeper 本身的快速失败(Fast Fail)原则，同时为了方便维护和管理，这里可以使用 supervisor 进行进程监视。
 
-5.1 安装 supervisor
+### 5.1 安装 supervisor
 
 supervisor 的安装非常简单：
-
+```
 # 安装 supervisor
 pip install supervisor [或者: easy_install supervisor]
+```
 
-
-5.2 supervisor 的目录规划
+### 5.2 supervisor 的目录规划
 
 对象
 目录/文件
@@ -432,10 +399,10 @@ pip install supervisor [或者: easy_install supervisor]
 zookeeper 服务配置文件	$HOME/app/supervisor/conf.d/zookeeper.conf
 日志目录	/home1/logs/supervisor/
 
-5.3 supervisor 的配置示例
+### 5.3 supervisor 的配置示例
 
 1. 主配置文件：$HOME/app/supervisor/supervisord.conf
-
+```
 [unix_http_server]
 file=/tmp/supervisor.sock   ; (the path to the socket file)
 ;chmod=0700                 ; socket file mode (default 0700)
@@ -494,10 +461,10 @@ serverurl=unix:///tmp/supervisor.sock      ; use a unix:// URL  for a unix socke
 
 [include]
 files = /home/storm/local/supervisor/conf.d/*.conf 
-
+```
 
 2. zookeeper 配置文件：$HOME/app/supervisor/conf.d/zookeeper.conf
-
+```
 [program:zookeeper]
 command=zkServer.sh start-foreground
 process_name=%(program_name)s
@@ -524,9 +491,9 @@ stderr_logfile_backups=10
 ;stderr_capture_maxbytes=1MB
 ;environment=A="1",B="2"
 ;serverurl=AUTO
+```
 
-
-5.3 supervisor 的启动
+### 5.3 supervisor 的启动
 
 1. 增加环境变量：
 
@@ -543,7 +510,7 @@ alias supervisorctl="supervisorctl -c $HOME/app/supervisor/supervisord.conf"
 检测状态：supervisorctl status
 停止服务：supervisorctl stop zookeeper
 
-6. 服务监控
+## 6. 服务监控
 
 对 zookeeper 进行服务监控，监控主要涉及3个方面：
 
@@ -551,10 +518,11 @@ alias supervisorctl="supervisorctl -c $HOME/app/supervisor/supervisord.conf"
 
 2. zookeeper server 运行状态监控；
 
-6.1 zookeeper server JVM 内存监控
+### 6.1 zookeeper server JVM 内存监控
 
 通过JMX 进行远程监控，用于非侵入式的JVM状态监控，后续细说。
-6.2 zookeeper server 运行状态监控
+
+### 6.2 zookeeper server 运行状态监控
 
 运行状态信息，使用四字监控即可，在建立监控数据展示页面时，建议每一个 zookeeper server 为一个监控主页，里面根据以下的四字命令返回的信息来进行分 tab：
 1. 环境信息：envi
@@ -627,12 +595,13 @@ minlat=0	最小时延
 avglat=0	平均时延
 maxlat=8	最大时延
 
+```
 # cons
 [storm@st-ucgc221 ~]$ echo "cons" | nc localhost 2181
  /10.34.166.113:59542[1](queued=0,recved=993634,sent=993635,sid=0x2506ac05e870004,lop=PING,est=1445243451807,to=6000,lcxid=0x11,lzxid=0x100000070,lresp=1447230742970,llat=0,minlat=0,avglat=0,maxlat=8)
  /127.0.0.1:46797[0](queued=0,recved=1,sent=0)
  /10.34.161.41:60376[1](queued=0,recved=344909,sent=344914,sid=0x1506ac05e7f0000,lop=PING,est=1446540994814,to=6000,lcxid=0x39,lzxid=0x100000070,lresp=1447230742548,llat=0,minlat=0,avglat=0,maxlat=7)
-
+```
 
 4. 状态概览：mntr 【监控首页】
 属性
@@ -656,6 +625,7 @@ zk_followers	zookeeper 集群中 Follower 数量 【 Leader 仅有】
 zk_synced_followers	zookeeper 集群中正常同步的 Follower 数量【 Leader 仅有】
 zk_pending_syncs	zookeeper 集群中正在同步的 Follower 数量【 Leader 仅有】
 
+```
 # mntr
 [storm@st-ucgc223 ~]$ echo "mntr" | nc 127.0.0.1 2181
 zk_version      3.4.6-1569965, built on 02/20/2014 09:09 GMT
@@ -676,14 +646,14 @@ zk_max_file_descriptor_count    65535
 zk_followers    2
 zk_synced_followers     2
 zk_pending_syncs        0
+```
 
 5. Session 的 watch 统计：wchs、wchc、wchp 【可以通过 Session ID 关联到 cons 查看细节】
-
+```
 # watch 概览：wchs
 [storm@st-ucgc221 ~]$  echo "wchs" | nc 127.0.0.1 2181
 1 connections watching 2 paths
 Total watches:2
-
 
 # sessions watch 的 zk_zonde 统计：wchc
 [storm@st-ucgc221 ~]$ echo "wchc" | nc 127.0.0.1 2181
@@ -691,10 +661,10 @@ Total watches:2
         /controller
         /config/changes
 
-
 # zk_zonde 被 watch 的 sessions 统计：wchp
 [storm@st-ucgc221 ~]$ echo "wchp" | nc 127.0.0.1 2181
 /controller
         0x150dafae8640000
 /config/changes
         0x150dafae8640000
+```
