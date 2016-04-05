@@ -25,10 +25,12 @@
   5. Session 的 watch 统计：wchs、wchc、wchp 【可以通过 Session ID 关联到 cons 查看细节】
 
 
-1. 序言
 
-本手册是 zookeeper 安装的建议文档，zookeeper 后续可搭配 Kafka 使用，Kafka 本身也自带 zookeeper，但是根据组件的封装性和隔离性，建议单独部署。
-2. 目录规划
+## 1. 序言
+
+本手册是 zookeeper 安装的建议文档，zookeeper后续可搭配Kafka使用，Kafka本身也自带zookeeper，但是根据组件的封装性和隔离性建议单独部署。
+
+## 2. 目录规划
 以下是 zookeeper 的标准化安装时核心的目录/文件规划：
 对象
 目录/文件
