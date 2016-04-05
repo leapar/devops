@@ -336,6 +336,7 @@ print-cmd	打印出当前环境变量下，zookeeper 服务端的启动命令，
 
 配置为 zoo.cfg 时，启动命令如下：
 
+```
 # 检测启动命令
 zkServer.sh print-cmd
 
@@ -344,6 +345,7 @@ zkServer.sh start
 
 # 检测状态
 zkServer.sh status
+```
 
 按照操作，启动 zookeeper server 实例，随着实例的依次启动，检测 zkServer status 时，状态会从 "Error contacting service. It is probably not running." 到选举成功为止，改变为 "Mode: follower" 或者 “Mode: leader”。
 
