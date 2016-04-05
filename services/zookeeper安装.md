@@ -97,18 +97,13 @@ $HOME/app/zookeeper/conf/log4j.properties
 
 |对象|内容|备注|使用场合|
 |----|----|----|--------|
-log4j.rootLogger	INFO, ROLLINGFILE	
-日志输出的默认级别、输出对象，这里设定输出级别为INFO，输出的Appender为”ROLLINGFILE"
-日志级别有TRACE、DEBUG、INFO、WARN等，Appender对象是自定义的
-通用
-log4j.appender.ROLLINGFILE	org.apache.log4j.RollingFileAppender	
-设定一个 RollingFIleAppender，名称为 “ROLLINGFILE”，其他类型的Appender，例如：
-输出到终端：org.apache.log4j.ConsoleAppender 等
-通用
-log4j.appender.ROLLINGFILE.Threshold	INFO	设定 ROLLINGFILE 的日志级别	通用
-log4j.appender.ROLLINGFILE.File	/home1/logs/zookeeper/zookeeper.log	设定 ROLLINGFILE 的日志文件名称	通用
-log4j.appender.ROLLINGFILE.layout	org.apache.log4j.PatternLayout	设定 ROLLINGFILE 的日志输出格式类型	通用
-log4j.appender.ROLLINGFILE.layout.ConversionPattern	%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n	设定 ROLLINGFILE 的格式内容	通用
+|log4j.rootLogger|	INFO, ROLLINGFILE	|日志输出的默认级别、输出对象，这里设定输出级别为INFO，输出的Appender为”ROLLINGFILE"
+日志级别有TRACE、DEBUG、INFO、WARN等，Appender对象是自定义的 |通用|
+|log4j.appender.ROLLINGFILE |	org.apache.log4j.RollingFileAppender	|设定一个 RollingFIleAppender，名称为 “ROLLINGFILE”，其他类型的Appender，例如：输出到终端：org.apache.log4j.ConsoleAppender 等|通用|
+|log4j.appender.ROLLINGFILE.Threshold|	INFO|	设定 ROLLINGFILE 的日志级别	|通用|
+|log4j.appender.ROLLINGFILE.File|	/home1/logs/zookeeper/zookeeper.log|	设定 ROLLINGFILE 的日志文件名称|	通用|
+|log4j.appender.ROLLINGFILE.layout|	org.apache.log4j.PatternLayout|	设定 ROLLINGFILE 的日志输出格式类型|	通用|
+|log4j.appender.ROLLINGFILE.layout.ConversionPattern|	%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n	|设定ROLLINGFILE 的格式内容|	通用|
 
 
 
@@ -123,8 +118,6 @@ zookeeper.2
 ...
 按照日志大小轮替时使用
 【默认使用】
-
-
 
 log4j.appender.ROLLINGFILE.DatePattern = '.'yyyy-MM-dd-HH	 '.'yyyy-MM-dd-HH	
 设定 ROLLINGFILE 的日志轮替周期为小时，每一小时轮替一次，如果想按照天来轮替： '.'yyyy-MM-dd 即可
@@ -213,45 +206,25 @@ log4j.appender.TRACEFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - 
 ### 3.4 配置文件
 
 zookeeper 主配置文件为：
-
+```
 $HOME/app/zookeeper/conf/zoo.cfg【cd $HOME/app/zookeeper/conf && cp -a zoo_sample.cfg zoo.cfg】
-
+```
  这里针对比较重要的参数进行了描述，详细可以查看官方文档：
 
 |对象|内容|备注|
 |----|----|----|
-tickTime	3000	
-设定心跳周期为 3000 毫秒；
-zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳
-initLimit	10	
-设定心跳失败的次数为 10 次；
-zookeeper 的 Leader 接受客户端（Follower）初始化连接时最长能忍受多少个心跳时间间隔数；当已经超过 10 个心跳的时间（也就是tickTime）长度后 zookeeper 服务器还没有收到客户端的返回信息，那么表明这个客户端连接失败。总的时间长度就是 10 * 3000 = 30 秒
-syncLimit	5	
-设定消息发送和接收的时间为 5 * 3000 = 15 秒；
-表示 Leader 与 Follower 之间发送消息时请求和应答时间长度，最长不能超过多少个tickTime 的时间长度，总的时间长度就是  5 * 3000 = 15 秒
-maxClientCnxns	60	
-设定服务端能够同时处理的客户端连接数量为 60；
-默认关闭，允许在系统支撑条件的情况下，不限制客户端连接数量
-dataDir	/home1/data/zookeeper/	设定快照文件目录
-dataLogDir	/home1/data/zookeeper/datalog/	设定事务日志目录
-clientPort	2181	设定客户端连接时使用的端口
-minSessionTimeout	6000	设定客户端超时的最小时间为 6000 毫秒，默认 2 * tickTime
-maxSessionTimeout	180000	设定客户端超时的最大时间为 180000 毫秒，默认 20 * tickTime
-autopurge.snapRetainCount	30	当启用自动清理时，设定快照文件的保留个数为 30，默认 3
-autopurge.purgeInterval	1	设定启用自动清理，值为 1，默认 0，关闭自动清理快照和事务日志
-server.A=B:C:D	
-伪集群模式：
-server.1=100.84.73.76:30000:30001
-server.2=100.84.73.76:30010:30011
-server.3=100.84.76.76:30020:30021
-正常模式：
-server.1=100.84.73.76:30000:30001
-server.2=100.84.73.77:30000:30001
-server.3=100.84.76.78:30000:30001
-A 设定为1，就是 zookeeper 服务端的在集群里面的标识，内容和 myid 保持一致【$HOME/app/zookeeper/data/myid】；
-B 设定为 100.84.73.76，zookeeper 集群中服务端的 IP 或者内网域名；
-C 设定为 30000，zookeeper 集群中服务端和 Leader 交换信息的端口；
-D 设定为 30001，表示的是万一集群中的 Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的 Leader，而这个端口就是用来执行选举时服务器相互通信的端口。如果是伪集群的配置方式，由于 B 都是一样，所以不同的 zookeeper 实例通信端口号不能一样，所以要给它们分配不同的端口号。
+|tickTime	| 3000	|设定心跳周期为 3000 毫秒；zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳|
+|initLimit |	10	|设定心跳失败的次数为 10 次；zookeeper 的 Leader接受客户端（Follower）初始化连接时最长能忍受多少个心跳时间间隔数；当已经超过 10 个心跳的时间（也就是tickTime）长度后 zookeeper 服务器还没有收到客户端的返回信息，那么表明这个客户端连接失败。总的时间长度就是 10 * 3000 = 30 秒 |
+|syncLimit | 5	| 设定消息发送和接收的时间为 5 * 3000 = 15 秒；表示 Leader 与 Follower 之间发送消息时请求和应答时间长度，最长不能超过多少个tickTime 的时间长度，总的时间长度就是  5 * 3000 = 15 秒 |
+|maxClientCnxns |	60	| 设定服务端能够同时处理的客户端连接数量为 60；默认关闭，允许在系统支撑条件的情况下，不限制客户端连接数量 |
+|dataDir	| /home1/data/zookeeper/ |	设定快照文件目录 |
+|dataLogDir |	/home1/data/zookeeper/datalog/ |	设定事务日志目录 |
+|clientPort |	2181 |	设定客户端连接时使用的端口 |
+|minSessionTimeout |	6000 |	设定客户端超时的最小时间为 6000 毫秒，默认 2 * tickTime |
+|maxSessionTimeout |	180000 |	设定客户端超时的最大时间为 180000 毫秒，默认 20 * tickTime |
+|autopurge.snapRetainCount |	30 |	当启用自动清理时，设定快照文件的保留个数为 30，默认 3 |
+|autopurge.purgeInterval |	1	| 设定启用自动清理，值为 1，默认 0，关闭自动清理快照和事务日志 |
+|server.A=B:C:D	| 伪集群模式：  server.1=100.84.73.76:30000:30001   server.2=100.84.73.76:30010:30011   server.3=100.84.76.76:30020:30021  正常模式：  server.1=100.84.73.76:30000:30001  server.2=100.84.73.77:30000:30001  server.3=100.84.76.78:30000:30001  | A 设定为1，就是 zookeeper 服务端的在集群里面的标识，内容和 myid保持一致【$HOME/app/zookeeper/data/myid】；  B 设定为 100.84.73.76，zookeeper 集群中服务端的 IP 或者内网域名；  C 设定为 30000，zookeeper 集群中服务端和 Leader 交换信息的端口；  D 设定为 30001，表示的是万一集群中的 Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的Leader，而这个端口就是用来执行选举时服务器相互通信的端口。如果是伪集群的配置方式，由于 B 都是一样，所以不同的 zookeeper 实例通信端口号不能一样，所以要给它们分配不同的端口号。|
 
 
  配置示例：
@@ -526,6 +499,7 @@ alias supervisorctl="supervisorctl -c $HOME/app/supervisor/supervisord.conf"
 
 运行状态信息，使用四字监控即可，在建立监控数据展示页面时，建议每一个 zookeeper server 为一个监控主页，里面根据以下的四字命令返回的信息来进行分 tab：
 1. 环境信息：envi
+
 属性
 说明
 zookeeper.version	zookeeper 版本号
@@ -538,6 +512,7 @@ os.version	内核版本
 user.name	运行用户
 user.dir	zookeeper server 根目录
 
+```
 # envi
 [storm@st-ucgc221 ~]$ echo "envi" | nc localhost 2181
 Environment:
@@ -548,6 +523,7 @@ java.vendor=Oracle Corporation
 java.home=/home/storm/local/jdk1.8.0_60/jre
 ...
 user.dir=/home/storm/local/supervisor-3.1.3
+```
 
 2. 固定设置：conf
 属性
@@ -567,6 +543,7 @@ electionPort	服务选举端口
 quorumPort	数据服务端口
 peerType	zookeeper server 运行类型
 
+```
 # conf
 [storm@st-ucgc221 ~]$ echo "conf" | nc localhost 2181
 clientPort=2181
@@ -575,6 +552,7 @@ dataLogDir=/home/storm/logs/zookeeper/version-2
 ...
 quorumPort=30000
 peerType=0
+```
 
 3. 连接总览：cons
 属性
