@@ -46,7 +46,7 @@
 - tomcat
 - hadoop
 - storm
-- zookeeper
+- [zookeeper](./services/zookeeper安装.md)
 - 其他
 
 ## <a name="devops"></a>DevOps
