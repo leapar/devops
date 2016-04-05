@@ -1,4 +1,4 @@
-:round_pushpin::round_pushpin::round_pushpin::round_pushpin::round_pushpin:
+:round_pushpin::round_pushpin:
 
 目录
 
@@ -12,6 +12,9 @@
  - [集群](#cluster)
  - [调优](#optimize)
  - [工具](#tools)
+
+:round_pushpin::round_pushpin:
+
 
 ## <a name="linux_base"></a>Linux基础 :apple:
 - [初识&装系统](./new-to-linux.md)
