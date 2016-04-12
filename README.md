@@ -91,4 +91,4 @@
 - [tars包发布](https://github.com/lin-credible/tars)``目前项目已暂停，我这里是之前fork的``
 
 ## <a name="nosql"></a> NoSQL专栏
-- 通过《NoSQL精粹》可以入门了解了下
+- 通过《NoSQL精粹》入门了解了下
