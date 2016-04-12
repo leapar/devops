@@ -12,6 +12,7 @@
  - [集群](#cluster)
  - [调优](#optimize)
  - [工具](#tools)
+ - [NoSQL](#nosql)
 
 :round_pushpin::round_pushpin:
 
@@ -87,4 +88,7 @@
 - [cat-大众点评](https://github.com/dianping/cat)
 - [小米监控系统](https://github.com/open-falcon/of-release)
 - [腾讯开源](http://tencentopen.github.io/)
-- [tars包发布](https://github.com/lin-credible/tars)``目前项目已暂停``
+- [tars包发布](https://github.com/lin-credible/tars)``目前项目已暂停，我这里是之前fork的``
+
+## <a name="nosql"></a> NoSQL专栏
+- 通过《NoSQL精粹》可以入门了解了下
