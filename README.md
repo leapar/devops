@@ -50,7 +50,7 @@
 - tomcat
 - hadoop
 - storm
-- [zookeeper](./services/zookeeper安装.md)
+- [zookeeper](./services/zookeeper_install.md)
 - 其他
 
 ## <a name="devops"></a>DevOps
