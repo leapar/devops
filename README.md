@@ -1,5 +1,3 @@
-``把大家的运维经验和成果汇聚起来，大家一起学习和参考，共同进步``
-
 :round_pushpin::round_pushpin:
 
 目录
@@ -66,6 +64,7 @@
 
 ## <a name="deploy"></a>持续部署 :tangerine:
 - git+deployAgent
+- [Jenkins](https://jenkins.io/)
 
 ## <a name="monitor"></a>监控系统 :banana:
 - zabbix
