@@ -44,7 +44,7 @@
 - apache略 
 - php
 - python
-- mysql
+- [mysql专栏](https://github.com/linux-operations-summary/mysql-operations-intro)
 - mongodb
 - jvm
 - tomcat
