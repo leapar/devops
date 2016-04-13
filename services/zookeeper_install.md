@@ -646,3 +646,6 @@ Total watches:2
 /config/changes
         0x150dafae8640000
 ```
+
+
+``分享得同事的成功, 我没有具体配置这里，我需要进一步学习zookeeper``
