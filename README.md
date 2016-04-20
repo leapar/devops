@@ -85,8 +85,8 @@
 ## <a name="tools"></a>小工具 :green_apple:
 - [shell脚本](./shell)
 
-## <a name="database"></a> DataBase
-- 这书不错，《NoSQL精粹》，简单清晰
+## <a name="database"></a> DataBase :package:
+- ``NoSQL精粹`` :blue_book:
 - [A New DBM in Pure C](https://github.com/zhicheng/db)
 - [TiDB](https://github.com/pingcap/tidb) is a distributed NewSQL database compatible with MySQL protocol
 - [NewSQL](https://github.com/lealone/Lealone) 兼具RDBMS、NoSQL优点的下一代NewSQL分布式关系数据库
