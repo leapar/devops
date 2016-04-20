@@ -91,6 +91,7 @@
 - [TiDB](https://github.com/pingcap/tidb) is a distributed NewSQL database compatible with MySQL protocol
 - [NewSQL](https://github.com/lealone/Lealone) 兼具RDBMS、NoSQL优点的下一代NewSQL分布式关系数据库
 - [F1: A Distributed SQL Database That Scales](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41344.pdf)
+- [Google Data Manage Search](http://research.google.com/pubs/DataManagement.html)
 
 ## <a name="opensource"></a>相关开源和参考 :cn:
 - [阿里巴巴](https://github.com/alibaba)
