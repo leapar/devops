@@ -12,7 +12,7 @@
  - [集群](#cluster)
  - [调优](#optimize)
  - [工具](#tools)
- - [NoSQL](#nosql)
+ - [DataBase](#database)
  - [相关开源和参考](#opensource)
 
 :round_pushpin::round_pushpin:
@@ -85,8 +85,11 @@
 ## <a name="tools"></a>小工具 :green_apple:
 - [shell脚本](./shell)
 
-## <a name="nosql"></a> NoSQL专栏
+## <a name="database"></a> 数据
 - 通过《NoSQL精粹》入门了解了下
+- [A New DBM in Pure C](https://github.com/zhicheng/db)
+- [TiDB](https://github.com/pingcap/tidb) is a distributed NewSQL database compatible with MySQL protocol
+- [NewSQL](https://github.com/lealone/Lealone) 兼具RDBMS、NoSQL优点的下一代NewSQL分布式关系数据库
 
 ## <a name="opensource"></a>相关开源和参考 :cn:
 - [阿里巴巴](https://github.com/alibaba)
