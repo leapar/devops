@@ -86,7 +86,7 @@
 - [shell脚本](./shell)
 
 ## <a name="database"></a> 数据
-- 通过《NoSQL精粹》入门了解了下
+- 这书不错，《NoSQL精粹》，简单清晰
 - [A New DBM in Pure C](https://github.com/zhicheng/db)
 - [TiDB](https://github.com/pingcap/tidb) is a distributed NewSQL database compatible with MySQL protocol
 - [NewSQL](https://github.com/lealone/Lealone) 兼具RDBMS、NoSQL优点的下一代NewSQL分布式关系数据库
