@@ -1,0 +1,41 @@
+Author:wds
+Email: djangowang@tencent.com
+version: p 1.0 
+from http://blog.puppeter.com/read.php?7
+####### dir ####
+.
+|-- README
+|-- clip
+|-- conf
+|   |-- clip.ini
+|   |-- cstring.ini
+|   |-- framework.ini
+|   |-- history.ini
+|   |-- import.ini
+|   |-- lt.ini
+|   |-- scan.ini
+|   |-- scp.ini
+|   |-- ssh.ini
+|   |-- template.ini
+|   `-- tree.ini
+|-- lib
+|   |-- __init__.py
+|   |-- __init__.pyc
+|   |-- subcommand.py
+|   |-- subcommand.pyc
+|   |-- tiny_expect.exp
+|   `-- tiny_expect_scp.exp
+|-- plugin
+|   |-- __init__.py
+|   |-- plugin_base.py
+|   |-- plugin_cstring.py
+|   |-- plugin_history.py
+|   |-- plugin_import.py
+|   |-- plugin_lt.py
+|   |-- plugin_scan.py
+|   |-- plugin_scp.py
+|   |-- plugin_ssh.py
+|   `-- plugin_tree.py
+`-- tools
+    |-- nc
+        `-- telnet

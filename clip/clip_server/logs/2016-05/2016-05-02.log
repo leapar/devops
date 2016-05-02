@@ -1,0 +1,65 @@
+[2016-05-02 19:04:25] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:04:25] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:04:37] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:04:37] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:05:36] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:05:36] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:08:04] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:08:04] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:10:42] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:10:42] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:14:53] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:14:53] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:16:59] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:16:59] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:21:09] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:21:09] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:26:00] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:26:00] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:26:39] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:27:48] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:27:48] error: line:42| res:premission deny| operator: IP: 127.0.0.1
+[2016-05-02 19:28:11] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:33:04] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 19:36:58] error: line:139 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 20:57:21] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 20:57:56] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 20:58:19] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 20:58:29] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 20:58:30] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 20:58:34] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 21:00:05] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 21:00:16] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 21:00:18] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 21:00:45] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 21:07:58] error: line:138 | res:parameter error | operator: IP: 127.0.0.1
+[2016-05-02 21:13:27] error: line:138 | res:parameter error | operator:guest IP: 127.0.0.1
+[2016-05-02 21:15:20] error: line:204| res:premission deny| operator:guest IP: 127.0.0.1
+[2016-05-02 21:16:41] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:16:41] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:16:46] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:16:46] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:19:16] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:19:16] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:20:41] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:20:41] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:27:35] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:27:35] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:29:14] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:29:14] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:29:26] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:29:26] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:32:19] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:32:19] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:33:08] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:33:08] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:33:39] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:33:53] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:36:04] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:36:56] Warning: Mysql Server connect fail! <br/>Error Message:No such file or directory<br/>Error Code:2002 IP: 127.0.0.1
+[2016-05-02 21:36:56] Warning: Mysql Server connect fail! <br/>Error Message:No such file or directory<br/>Error Code:2002 IP: 127.0.0.1
+[2016-05-02 21:37:09] Warning: Mysql Server connect fail! <br/>Error Message:No such file or directory<br/>Error Code:2002 IP: 127.0.0.1
+[2016-05-02 21:39:27] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:49:38] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 21:49:38] Warning: Mysql Server connect fail. Error Code:2002 Error Message:No such file or directory IP: 127.0.0.1
+[2016-05-02 22:13:33] error: line:146 | res:cstring error| operator:guest IP: 127.0.0.1
