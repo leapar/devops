@@ -62,6 +62,7 @@
 
 ## <a name="cmdb"></a>配置管理 :grapes: 
 - cmdb
+- [clip](./clip) 
 
 ## <a name="deploy"></a>持续部署 :tangerine:
 - git+deployAgent
