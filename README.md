@@ -81,7 +81,9 @@
 
 ## <a name="optimize"></a>系能调优策略 :corn:
 - 调优工具
+  ![linux_performance](./linux_observability_tools.png)
 - 分析系统
+- [Linux Performance](http://www.brendangregg.com/linuxperf.html)
 
 ## <a name="tools"></a>小工具 :green_apple:
 - [shell脚本](./shell)
