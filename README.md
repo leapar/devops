@@ -20,7 +20,8 @@
 
 ## <a name="linux_base"></a>Linux基础 :apple:
 - [初识&装系统](./new-to-linux.md)
-- [系统启动过程](./images/linux-start.png)
+- 系统启动过程``如下图, 不一定正确 :joy:``
+  ![linux_start](./images/linux-start.png)
 - 登录后注意事项
 - 系统安全
   - 密码管理
@@ -81,7 +82,7 @@
 
 ## <a name="optimize"></a>系能调优策略 :corn:
 - 调优工具
-  ![linux_performance](./linux_observability_tools.png)
+  ![linux_performance](./images/linux_observability_tools.png)
 - 分析系统
 - [Linux Performance](http://www.brendangregg.com/linuxperf.html)
 
