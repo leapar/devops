@@ -66,6 +66,8 @@
 - [clip](./clip) 
 
 ## <a name="deploy"></a>持续部署 :tangerine:
+> 一般的产品发布流程
+[发布流程](https://cloud.githubusercontent.com/assets/3191641/18626799/b6e1a0fe-7e89-11e6-9125-17d573a8c469.png)
 - git+deployAgent
 - [Jenkins](https://jenkins.io/)
 
@@ -103,4 +105,6 @@
 - [小米监控系统](https://github.com/open-falcon/of-release)
 - [腾讯开源](http://tencentopen.github.io/)
 - [tars包发布](https://github.com/lin-credible/tars)``目前项目已暂停，我这里是之前fork的``
+  *  发布架构图
+  [架构图](https://cloud.githubusercontent.com/assets/3191641/18626755/725e574c-7e89-11e6-8233-b6d903947a4b.png)
 - [腾讯-SNG内部运维平台](http://www.infoq.com/cn/news/2014/09/tencent-sng-cms)
