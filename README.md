@@ -10,7 +10,7 @@
  - [集群](#cluster)
  - [调优](#optimize)
  - [工具](#tools)
- - [DataBase](#database)
+ - [数据库](#database)
  - [相关开源和参考](#opensource)
 
 
@@ -90,6 +90,7 @@
 - [shell脚本](./shell)
 
 ## <a name="database"></a> DB
+- [大型共享数据库的关系数据模型](http://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
 - ``NoSQL精粹`` :blue_book:
 - [A New DBM in Pure C](https://github.com/zhicheng/db)
 - [TiDB](https://github.com/pingcap/tidb) is a distributed NewSQL database compatible with MySQL protocol
