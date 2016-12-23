@@ -18,8 +18,7 @@
 
 ## <a name="linux_base"></a>Linux基础
 - [初识&装系统](./new-to-linux.md)
-- 系统启动过程``如下图, 不一定正确 :joy:``  
-  ![linux_start](./images/linux-start.png)  
+- 系统启动过程
 - 登录后注意事项
 - 系统安全
   - 密码管理
